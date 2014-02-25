@@ -32,7 +32,7 @@ function googleLibLoaded(){
 	
 	console.log('google loaded');//test if Google Viz library is loaded
 	
-	$.get("GDPC1.json", gdpLoaded, "json");//(3) loads up the data
+	$.get("GDPC1.json", gdpLoaded, "json");//(3) goes and gets the json file with the data in it
 
 }//end googleLibLoaded
 
@@ -40,7 +40,7 @@ function googleLibLoaded(){
 function gdpLoaded(GDP){
 	console.log(GDP.GDPdata);//testing if GDPdata is loading
 
-	var gdpData = GDP.GDPdata;//this creates an object for my data and tell it to look in the json file for the data object
+	var gdpData = GDP.GDPdata;//this creates an object for my data and tells it to look in the json file for the data object.
 	
 	var dataHeaders = ["Date","U.S. GDP (2009 dollars)"];//this creates headers for my array that I will feed to the Google Viz lib
 	
@@ -69,7 +69,9 @@ function gdpLoaded(GDP){
           titleTextStyle: {fontSize:18},
           hAxis: {title:'Date'},
           vAxis: {title:'U.S. Real GDP ($ Billions)'},
-          height: 580
+          height: 580,
+          curveType: 'function',
+          colors:['green']
         };//this formats my chart
 
         var chart = new google.visualization.LineChart(document.getElementById('gdp_div'));//changed div id to "gdp_div". See html.
@@ -77,4 +79,3 @@ function gdpLoaded(GDP){
         chart.draw(data, options);//this is the Google function to draw the chart. It will take the data from the data var and the formatting from the options var
 	
 }//end gdpLoaded
-
