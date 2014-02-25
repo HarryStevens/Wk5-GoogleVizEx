@@ -1,14 +1,23 @@
 h1 {
-	text-align:center;
-	font-family:arial;
-	text-decoration:underline;
-	font-size:20px;
+	text-align: center;
+	font-family: arial;
+	text-decoration: underline;
+	font-size: 20px;
 }
+
 .para {
-	margin-left:60px;
-	margin-bottom:0px;
-	font-family:arial,helvetica,sans-serif;
-	font-size:14px;
-	margin:auto;
-	display:table;
+	margin-left: 60px;
+	margin-bottom: 0px;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 14px;
+	margin: auto;
+	display: table;
+	width:800px;
+}
+
+#gdp_div {
+	display: table;
+	margin: 0 auto;
+	width:1000px;
+
 }
