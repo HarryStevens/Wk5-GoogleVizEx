@@ -10,8 +10,7 @@ h1 {
 	font-size: 14px;
 	margin: auto;
 	display: table;
-	width:800px;
-	max-width:100%;
+	max-width:800px;
 	min-width:1px;
 }
 
