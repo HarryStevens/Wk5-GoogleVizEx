@@ -9,6 +9,12 @@
  * 3. Load Data
  * 4. Feed data to Google Viz library
  * 5. Display data viz on page
+ * 
+ * NOTE: The data is taken from FRED (http://research.stlouisfed.org/fred2/series/GDPC1), 
+ * 	downloaded as CSV, and converted to JSON with convertcsv.com (http://www.convertcsv.com/csv-to-json.htm).
+ * 	This was done in lieu of having to get an access key from FRED, as the potential 24-hour wait
+ * 	period was too long.
+ * 
  */
 
 console.log('js working');//test if html is pulling js
@@ -36,7 +42,7 @@ function gdpLoaded(GDP){
 
 	var gdpData = GDP.GDPdata;//this creates an object for my data and tell it to look in the json file for the data object
 	
-	var dataHeaders = ["Date","Real GDP (billions of 2009 dollars)"];//this creates headers for my array that I will feed to the Google Viz lib
+	var dataHeaders = ["Date","U.S. GDP (2009 dollars)"];//this creates headers for my array that I will feed to the Google Viz lib
 	
 	var gdpArray = [];//this creates an empty array that I will populate with headers and data so I can feed it to the Google Viz lib
 	
@@ -59,7 +65,11 @@ function gdpLoaded(GDP){
         var data = google.visualization.arrayToDataTable(gdpArray);//this feeds my data, formed as an array of arrays, into the Google Viz library
 
         var options = {
-          title: 'Real U.S. GDP, 1947-present'
+          title: 'U.S. Real GDP, 1947 - Present',
+          titleTextStyle: {fontSize:18},
+          hAxis: {title:'Date'},
+          vAxis: {title:'U.S. Real GDP ($ Billions)'},
+          height: 580
         };//this formats my chart
 
         var chart = new google.visualization.LineChart(document.getElementById('gdp_div'));//changed div id to "gdp_div". See html.
