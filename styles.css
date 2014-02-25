@@ -4,3 +4,11 @@ h1 {
 	text-decoration:underline;
 	font-size:20px;
 }
+.para {
+	margin-left:60px;
+	margin-bottom:0px;
+	font-family:arial,helvetica,sans-serif;
+	font-size:14px;
+	margin:auto;
+	display:table;
+}
