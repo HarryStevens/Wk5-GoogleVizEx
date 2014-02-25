@@ -24,4 +24,5 @@ function pageReady(){
 
 function googleLibLoaded(){
 	console.log('google loaded');//test if Google Viz library is loaded
+	$.get("")
 }
