@@ -12,6 +12,7 @@ h1 {
 	display: table;
 	width:800px;
 	max-width:100%;
+	min-width:1px;
 }
 
 #gdp_div {
