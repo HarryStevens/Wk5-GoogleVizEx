@@ -53,18 +53,18 @@ function gdpLoaded(GDP){
 	}//end for
 	
 	console.log(gdpArray);//testing if gdpArray is loading
-	
-}//end gdpLoaded
 
-//(5)This function will draw the chart to the browser. Names are taken from the Google documentation at https://developers.google.com/chart/interactive/docs/gallery/linechart
-function drawChart() {
-        var data = google.visualization.arrayToDataTable(gdpArray);
+//(5)This section of the function will draw the chart to the browser. Var names are taken from the Google documentation at https://developers.google.com/chart/interactive/docs/gallery/linechart
+
+        var data = google.visualization.arrayToDataTable(gdpArray);//this feeds my data, formed as an array of arrays, into the Google Viz library
 
         var options = {
           title: 'Real U.S. GDP, 1947-present'
-        };
+        };//this formats my chart
 
-        var chart = new google.visualization.LineChart(document.getElementById('gdp_div'));
-        chart.draw(data, options);
-      }
+        var chart = new google.visualization.LineChart(document.getElementById('gdp_div'));//changed div id to "gdp_div". See html.
+        
+        chart.draw(data, options);//this is the Google function to draw the chart. It will take the data from the data var and the formatting from the options var
+	
+}//end gdpLoaded
 
