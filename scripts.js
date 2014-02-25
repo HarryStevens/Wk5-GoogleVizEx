@@ -52,7 +52,7 @@ function gdpLoaded(GDP){
 
 	}//end for
 	
-	
+	console.log(gdpArray);//testing if gdpArray is loading
 	
 }//end gdpLoaded
 
