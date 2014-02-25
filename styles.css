@@ -6,8 +6,6 @@ h1 {
 }
 
 .para {
-	margin-left: 60px;
-	margin-bottom: 0px;
 	font-family: arial, helvetica, sans-serif;
 	font-size: 14px;
 	margin: auto;
@@ -19,5 +17,4 @@ h1 {
 	display: table;
 	margin: 0 auto;
 	width:1000px;
-
 }
