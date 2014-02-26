@@ -64,14 +64,15 @@ function gdpLoaded(GDP){
 
         var data = google.visualization.arrayToDataTable(gdpArray);//this feeds my data, formed as an array of arrays, into the Google Viz library
 
-        var options = {
+		var options = {
           title: 'U.S. Real GDP, 1947 - Present',
           titleTextStyle: {fontSize:18},
           hAxis: {title:'Date'},
           vAxis: {title:'U.S. Real GDP ($ Billions)'},
           height: 580,
           curveType: 'function',
-          colors:['green']
+          colors:['green'],
+          chartArea:{top:50, height:400}
         };//this formats my chart
 
         var chart = new google.visualization.LineChart(document.getElementById('gdp_div'));//changed div id to "gdp_div". See html.
