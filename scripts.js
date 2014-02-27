@@ -17,28 +17,22 @@
  * 
  */
 
-console.log('js working');//test if html is pulling js
-
 //(1) jQuery document ready function will call pageReady
 $(document).ready(pageReady);
 
 //(2) pageReady will load the Google Viz libary
 function pageReady(){
-	console.log('page ready');//test if document ready is correctly formed
 	google.load("visualization", "1", {packages:["corechart"],callback:"googleLibLoaded"});//loading Google Viz Library w/ callback function googleLibLoaded
 }
 
 function googleLibLoaded(){
-	
-	console.log('google loaded');//test if Google Viz library is loaded
-	
+		
 	$.get("GDPC1.json", gdpLoaded, "json");//(3) goes and gets the json file with the data in it
 
 }//end googleLibLoaded
 
 //(4)This function will feed the data (GDP) into the Google Viz library and display it on the page
 function gdpLoaded(GDP){
-	console.log(GDP.GDPdata);//testing if GDPdata is loading
 
 	var gdpData = GDP.GDPdata;//this creates an object for my data and tells it to look in the json file for the data object.
 	
@@ -48,17 +42,20 @@ function gdpLoaded(GDP){
 	
 	gdpArray.push(dataHeaders);
 	
+	
 	//The below for loop will turn each object from the GDP data into arrays that can be put into the empty gdpArray 
 	for(var i=0; i<gdpData.length; i++){
 		
 		var workingObject = gdpData[i];//creates a random object that will update with each new object from the GDP data
-		
-		var workingArray = [workingObject.DATE, workingObject.VALUE];//creates a random ARRAY that will be populated by the properties from the objects in the GDP data
-		gdpArray.push(workingArray);//this will populate my gdpArray, which I will feed to the Google Data Viz library to display it on the page
 
+		var day = moment(workingObject.DATE);
+		console.log(day);
+
+		var workingArray = [day._i, workingObject.VALUE];//creates a random ARRAY that will be populated by the properties from the objects in the GDP data
+		gdpArray.push(workingArray);//this will populate my gdpArray, which I will feed to the Google Data Viz library to display it on the page
+		
 	}//end for
 	
-	console.log(gdpArray);//testing if gdpArray is loading
 
 //(5)This section of the function will draw the chart to the browser. Var names are taken from the Google documentation at https://developers.google.com/chart/interactive/docs/gallery/linechart
 
