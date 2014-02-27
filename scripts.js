@@ -86,8 +86,9 @@ function gdpLoaded(GDP){
           height: 600,
           curveType: 'function',
           colors:['green'],
-          explorer: { actions: ['dragToZoom', 'rightClickToReset'],  axis: 'horizontal' },
-          chartArea:{top:70, height:400}
+          explorer: { actions: ['dragToZoom', 'rightClickToReset'],  axis: 'horizontal', keepInBounds: true },
+          chartArea:{top:70, height:400},
+          selectionMode:'multiple'
         };//this formats my chart
 
         var chart = new google.visualization.LineChart(document.getElementById('gdp_div'));//changed div id to "gdp_div". See html.
