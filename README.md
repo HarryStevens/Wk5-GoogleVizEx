@@ -1,0 +1,1 @@
+This repo has all the fixins to render a Google Line Chart. It uses the libraries jQuery, Moment.js, and the Google Visualization library. It uses real GDP data (in the JSON file) from the Federal Reserve Bank of St. Louis.
