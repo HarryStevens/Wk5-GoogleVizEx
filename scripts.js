@@ -81,12 +81,12 @@ function gdpLoaded(GDP){
 		var options = {
           title: 'U.S. Real GDP, 1947 - Present',
           titleTextStyle: {fontSize:18},
-          hAxis: {title:'Date', format: 'MMM. d, y', },
-          vAxis: {title:'U.S. Real GDP ($ Trillions)', ticks: [0,2,4,6,8,10,12,14,16,18]},
+          hAxis: {title:'Date', format: 'y', },
+          vAxis: {title:'U.S. Real GDP ($ Trillions)', ticks: [0,5,10,15,20]},
           height: 600,
           curveType: 'function',
           colors:['green'],
-          explorer: { actions: ['dragToZoom', 'rightClickToReset'] },
+          explorer: { actions: ['dragToZoom', 'rightClickToReset'],  axis: 'horizontal' },
           chartArea:{top:70, height:400}
         };//this formats my chart
 
