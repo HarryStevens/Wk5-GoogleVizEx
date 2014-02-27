@@ -46,7 +46,7 @@ function gdpLoaded(GDP){
 
 	var gdpData = GDP.GDPdata;//this creates an object for my data and tells it to look in the json file for the data object.
 	
-	var dataHeaders = ["Date","U.S. GDP (2009 dollars)"];//this creates headers for my array that I will feed to the Google Viz lib
+	var dataHeaders = ["Date","U.S. GDP (Trillion 2009 dollars)"];//this creates headers for my array that I will feed to the Google Viz lib
 	
 	var gdpArray = [];//this creates an empty array that I will populate with headers and data so I can feed it to the Google Viz lib
 	
