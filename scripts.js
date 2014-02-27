@@ -82,7 +82,7 @@ function gdpLoaded(GDP){
           title: 'U.S. Real GDP, 1947 - Present',
           titleTextStyle: {fontSize:18},
           hAxis: {title:'Date', format: 'y', },
-          vAxis: {title:'U.S. Real GDP ($ Trillions)', ticks: [0,5,10,15,20]},
+          vAxis: {title:'U.S. Real GDP ($ Trillions)', format:'#', ticks: [0,5,10,15,20]},
           height: 600,
           curveType: 'function',
           colors:['green'],
