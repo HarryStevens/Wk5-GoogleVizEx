@@ -62,8 +62,8 @@ function gdpLoaded(GDP){
 				
 		var newNum = workingObject.VALUE/1000;//this var converts the billions to trillions!
 		
-		var shortNum = newNum.toFixed(2)//this var rounds the VALUEs to a smooth two decimal places
-
+		var shortNum = newNum.toFixed(2);//this var rounds the VALUEs to a smooth two decimal places
+		
 		var workingArray = [momentDate._d, Number(shortNum)];//creates a random ARRAY that will be populated by the properties from the objects in the GDP data
 														//NOTE: shortNum was coming in as a string for some reason, which was easily fixed.
 
@@ -86,7 +86,7 @@ function gdpLoaded(GDP){
           height: 600,
           curveType: 'function',
           colors:['green'],
-          explorer: { actions: ['dragToZoom', 'rightClickToReset'],  axis: 'horizontal', keepInBounds: true },
+          explorer: { actions: ['dragToZoom', 'rightClickToReset'],  axis: 'horizontal', keepInBounds: true},
           chartArea:{top:70, height:400},
           selectionMode:'multiple'
         };//this formats my chart
