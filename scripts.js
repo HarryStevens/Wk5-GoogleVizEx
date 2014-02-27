@@ -86,7 +86,7 @@ function gdpLoaded(GDP){
           height: 600,
           curveType: 'function',
           colors:['green'],
-          explorer: { actions: ['dragToZoom', 'rightClickToReset'],  axis: 'horizontal', keepInBounds: true, maxZoomIn: .1},
+          explorer: { actions: ['dragToZoom', 'rightClickToReset'], keepInBounds: true, maxZoomIn: .1},
           chartArea:{top:70, height:400},
           selectionMode:'multiple'
         };//this formats my chart
