@@ -17,15 +17,23 @@
  * 
  */
 
+console.log('js working');//test if html is pulling js
+
 //(1) jQuery document ready function will call pageReady
 $(document).ready(pageReady);
 
 //(2) pageReady will load the Google Viz libary
 function pageReady(){
+	
+	console.log('page ready');//test if document ready is correctly formed
+	
 	google.load("visualization", "1", {packages:["corechart"],callback:"googleLibLoaded"});//loading Google Viz Library w/ callback function googleLibLoaded
+
 }
 
 function googleLibLoaded(){
+	
+	console.log('google loaded');//test if Google Viz library is loaded
 		
 	$.get("GDPC1.json", gdpLoaded, "json");//(3) goes and gets the json file with the data in it
 
@@ -33,6 +41,8 @@ function googleLibLoaded(){
 
 //(4)This function will feed the data (GDP) into the Google Viz library and display it on the page
 function gdpLoaded(GDP){
+	
+	console.log(GDP.GDPdata);//testing if GDPdata is loading
 
 	var gdpData = GDP.GDPdata;//this creates an object for my data and tells it to look in the json file for the data object.
 	
@@ -42,24 +52,25 @@ function gdpLoaded(GDP){
 	
 	gdpArray.push(dataHeaders);
 	
-	
 	//The below for loop will turn each object from the GDP data into arrays that can be put into the empty gdpArray 
 	for(var i=0; i<gdpData.length; i++){
 		
 		var workingObject = gdpData[i];//creates a random object that will update with each new object from the GDP data
 
-		var momentDate = moment(workingObject.DATE);
-		console.log(momentDate);
+		var momentDate = moment(workingObject.DATE);//using moment.js to tell the computer that the json DATE property is actually a date
+		console.log(momentDate);//test to see if moment is working
 		
-		var newDate = moment(momentDate).format("MMM. D, YYYY");
-		console.log(newDate);
-		
+		var newDate = moment(momentDate).format("MMM. D, YYYY");//now that it knows it's a date, I can format it
+		console.log(newDate);//test to see if format worked
+
 		var workingArray = [newDate, workingObject.VALUE];//creates a random ARRAY that will be populated by the properties from the objects in the GDP data
+
 		gdpArray.push(workingArray);//this will populate my gdpArray, which I will feed to the Google Data Viz library to display it on the page
 		
 		
 	}//end for
 	
+	console.log(gdpArray);//testing if gdpArray is loading
 
 //(5)This section of the function will draw the chart to the browser. Var names are taken from the Google documentation at https://developers.google.com/chart/interactive/docs/gallery/linechart
 
@@ -68,16 +79,12 @@ function gdpLoaded(GDP){
 		var options = {
           title: 'U.S. Real GDP, 1947 - Present',
           titleTextStyle: {fontSize:18},
-          hAxis: {title:'Date', ticks: [new Date(1947,1,1), new Date(1950,1,1), new Date(1955,1,1), 
-          	new Date(1960,1,1), new Date(1965,1,1), new Date(1970,1,1), new Date(1975,1,1), 
-          	new Date(1980,1,1), new Date(1985,1,1), new Date(1990,1,1), new Date(1995,1,1),
-          	new Date(1990,1,1), new Date(1995,1,1), new Date(2000,1,1), new Date(2005,1,1),
-          	new Date(2010,1,1), new Date(2013,10,1)]},
+          hAxis: {title:'Date', format: 'MMM d, y'},
           vAxis: {title:'U.S. Real GDP ($ Billions)'},
-          height: 580,
+          height: 600,
           curveType: 'function',
           colors:['green'],
-          chartArea:{top:50, height:400}
+          chartArea:{top:70, height:400}
         };//this formats my chart
 
         var chart = new google.visualization.LineChart(document.getElementById('gdp_div'));//changed div id to "gdp_div". See html.
