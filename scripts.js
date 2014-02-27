@@ -51,7 +51,7 @@ function gdpLoaded(GDP){
 		var momentDate = moment(workingObject.DATE);
 		console.log(momentDate);
 		
-		var newDate = moment(momentDate).format("MMM D YYYY");
+		var newDate = moment(momentDate).format("MMM. D, YYYY");
 		console.log(newDate);
 		
 		var workingArray = [newDate, workingObject.VALUE];//creates a random ARRAY that will be populated by the properties from the objects in the GDP data
@@ -68,7 +68,11 @@ function gdpLoaded(GDP){
 		var options = {
           title: 'U.S. Real GDP, 1947 - Present',
           titleTextStyle: {fontSize:18},
-          hAxis: {title:'Date'},
+          hAxis: {title:'Date', ticks: [new Date(1947,1,1), new Date(1950,1,1), new Date(1955,1,1), 
+          	new Date(1960,1,1), new Date(1965,1,1), new Date(1970,1,1), new Date(1975,1,1), 
+          	new Date(1980,1,1), new Date(1985,1,1), new Date(1990,1,1), new Date(1995,1,1),
+          	new Date(1990,1,1), new Date(1995,1,1), new Date(2000,1,1), new Date(2005,1,1),
+          	new Date(2010,1,1), new Date(2013,10,1)]},
           vAxis: {title:'U.S. Real GDP ($ Billions)'},
           height: 580,
           curveType: 'function',
