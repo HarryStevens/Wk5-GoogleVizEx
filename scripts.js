@@ -62,8 +62,13 @@ function gdpLoaded(GDP){
 		
 		var newDate = moment(momentDate).format("MMM. D, YYYY");//now that it knows it's a date, I can format it
 		console.log(newDate);//test to see if format worked
+		
+		var newNum = workingObject.VALUE/1000;//this var converts the billions to trillions!
+		
+		var shortNum = newNum.toFixed(2)//this var rounds the VALUEs to a smooth two decimal places
 
-		var workingArray = [newDate, workingObject.VALUE/1000];//creates a random ARRAY that will be populated by the properties from the objects in the GDP data
+		var workingArray = [newDate, Number(shortNum)];//creates a random ARRAY that will be populated by the properties from the objects in the GDP data
+														//NOTE: shortNum was coming in as a string for some reason, which was easily fixed.
 
 		gdpArray.push(workingArray);//this will populate my gdpArray, which I will feed to the Google Data Viz library to display it on the page
 		
