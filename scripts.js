@@ -63,7 +63,7 @@ function gdpLoaded(GDP){
 		var newDate = moment(momentDate).format("MMM. D, YYYY");//now that it knows it's a date, I can format it
 		console.log(newDate);//test to see if format worked
 
-		var workingArray = [newDate, workingObject.VALUE];//creates a random ARRAY that will be populated by the properties from the objects in the GDP data
+		var workingArray = [newDate, workingObject.VALUE/1000];//creates a random ARRAY that will be populated by the properties from the objects in the GDP data
 
 		gdpArray.push(workingArray);//this will populate my gdpArray, which I will feed to the Google Data Viz library to display it on the page
 		
@@ -80,7 +80,7 @@ function gdpLoaded(GDP){
           title: 'U.S. Real GDP, 1947 - Present',
           titleTextStyle: {fontSize:18},
           hAxis: {title:'Date', format: 'MMM d, y'},
-          vAxis: {title:'U.S. Real GDP ($ Billions)'},
+          vAxis: {title:'U.S. Real GDP ($ Trillions)'},
           height: 600,
           curveType: 'function',
           colors:['green'],
