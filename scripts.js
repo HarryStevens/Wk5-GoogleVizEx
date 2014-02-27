@@ -48,11 +48,15 @@ function gdpLoaded(GDP){
 		
 		var workingObject = gdpData[i];//creates a random object that will update with each new object from the GDP data
 
-		var day = moment(workingObject.DATE);
-		console.log(day);
-
-		var workingArray = [day._i, workingObject.VALUE];//creates a random ARRAY that will be populated by the properties from the objects in the GDP data
+		var momentDate = moment(workingObject.DATE);
+		console.log(momentDate);
+		
+		var newDate = moment(momentDate).format("MMM D YYYY");
+		console.log(newDate);
+		
+		var workingArray = [newDate, workingObject.VALUE];//creates a random ARRAY that will be populated by the properties from the objects in the GDP data
 		gdpArray.push(workingArray);//this will populate my gdpArray, which I will feed to the Google Data Viz library to display it on the page
+		
 		
 	}//end for
 	
